@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hbd dek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="atas">
+            <img src="Android Compact - 1.png">
+        </div>
+        <div class="lagu,video">
+            <audio id="main-audio" preload="auto" loop>
+                <source src="Feast - Nina (Video Lirik).mp3" type="audio/mp3">
+            </audio>
+            
+            <div id="overlay" style="display: none;"></div>
+            <div id="notification" style="display: none;">
+                <p class="tengahnotif">Selamat Ulang tahunn cantikk, maaaf yaa hadiahnya telat dan ini doanggg, teruss jadi orng baik yaa dunia boleh jahat tapi kamu jangann, nahh sekarang tekenn tombolnyaa</p>
+                <button id="play-button">PLAY</button>
+            </div>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const audio = document.getElementById('main-audio');
+                    const overlay = document.getElementById('overlay');
+                    const notification = document.getElementById('notification');
+                    const playButton = document.getElementById('play-button');
+                    // Autoplay audio
+                    audio.play().catch(() => {
+                        console.log("Autoplay gagal, menampilkan notifikasi...");
+                        document.body.classList.add('no-scroll');
+                        overlay.style.display = 'block';
+                        notification.style.display = 'block';
+                    });
+            
+                    // Play audio on button click
+                    playButton.addEventListener('click', () => {
+                        audio.play();
+                        document.body.classList.remove('no-scroll');
+                        overlay.style.display = 'none';
+                        notification.style.display = 'none';
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>
